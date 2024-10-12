@@ -1,6 +1,7 @@
 package es.ulpgc.dis;
 
 import java.time.LocalDate;
+import java.util.StringJoiner;
 
 public class Person {
     private static final int DAYS_PER_YEAR = 365;
@@ -25,5 +26,14 @@ public class Person {
 
     private int toYears(long days) {
         return (int) days / DAYS_PER_YEAR;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Person.class.getSimpleName() + "[", "]")
+                .add("name='" + name + "'")
+                .add("birthday=" + birthday)
+                .add("age=" + getAge())
+                .toString();
     }
 }
